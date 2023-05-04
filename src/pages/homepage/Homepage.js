@@ -8,7 +8,7 @@ import { Cartcontext } from "../../context/Context";
 const Homepage = () => {
   const [data, setdata] = useState([]);
   const fetchData = async () => {
-    const response = await axios.get("https://fakestoreapi.com/products");
+    const response = await axios.get("http://localhost:8001/bots");
     setdata(response.data);
     console.log(data);
   };
@@ -24,9 +24,9 @@ const Homepage = () => {
         item.quantity = 1;
         return (
           <div className="card" key={index}>
-            <img src={item.image} alt="" />
-            <p>{item.title}</p>
-            <h3>$. {item.price}</h3>
+            <img src={item.avatar_url} alt="" />
+            <p>{item.bot_class}</p>
+            <h3>$. {item.catchphrase}</h3>
             <button onClick={() => dispatch({ type: "ADD", payload: item })}>
               add to cart
             </button>

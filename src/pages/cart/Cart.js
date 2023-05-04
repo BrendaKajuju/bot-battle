@@ -9,9 +9,6 @@ const Cart = () => {
   const state = Globalstate.state;
   const dispatch = Globalstate.dispatch;
 
-  const total = state.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
   return (
     <div className="cart">
       {state.map((item, index) => {
@@ -43,11 +40,6 @@ const Cart = () => {
           </div>
         );
       })}
-      {state.length > 0 && (
-        <div className="total">
-          <h2>{total}</h2>
-        </div>
-      )}
     </div>
   );
 };
